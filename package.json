@@ -1,0 +1,26 @@
+{
+  "name": "funcionalidaderest",
+  "version": "1.0.0",
+  "description": "funcionalidade rest module",
+  "main": "funcionalidaderest.js",
+  "dependencies": {
+    "restler": "^3.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/welder496/funcionalidade.git"
+  },
+  "keywords": [
+    "funcionalidade"
+  ],
+  "author": "Welder Mauricio de Souza <welder496@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/welder496/funcionalidade/issues"
+  },
+  "homepage": "https://github.com/welder496/funcionalidade#readme"
+}
