@@ -74,7 +74,7 @@ module.exports = {
 
       updateFuncionalidadeSubTipo: function(descricao, oldSubTipo, newSubtipo, callback){
          if (descricao != "" && oldSubTipo != "" && newSubtipo != "") {
-            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/'+oldSubTipo+'/to/'+newSubtipo);
+            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/'+oldSubTipo+'/to/'+newSubtipo)
                .on('success', function(data,response){
                      callback(data);
                })
