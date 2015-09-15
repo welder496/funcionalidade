@@ -45,7 +45,7 @@ module.exports = {
 
       updateFuncionalidadeOnlyDescricao: function(descricao, novaDescricao, callback){
           if (descricao != "" && novaDescricao != "") {
-            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/to/'+nodaDescricao)
+            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/to/'+novaDescricao)
                .on('success', function(data,response){
                      callback(data);
                })
