@@ -42,6 +42,22 @@ module.exports = {
          }
       },
 
+
+      updateFuncionalidadeOnlyDescricao: function(descricao, novaDescricao, callback){
+          if (descricao != "" && novaDescricao != "") {
+            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/to/'+nodaDescricao)
+               .on('success', function(data,response){
+                     callback(data);
+               })
+               .on('error', function(err,response){
+                     callback({message: "Erro ao atualizar Funcionalidade"});
+               });
+         } else {
+               callback({message: "Não foi possível atualizar Funcionalidade!!"});
+         }
+      },
+
+
       updateFuncionalidadeByDescricao: function(descricao, funcionalidadedata, callback){
           if (descricao != "") {
             rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao,{
