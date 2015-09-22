@@ -16,7 +16,7 @@ module.exports = {
 
       getFuncionalidadeByDescricao: function(descricao, callback){
           if (descricao != "") {
-            rest.get('http://'+host+":"+port+'/notas/funcionalidade/'+descricao)
+            rest.get('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao)
                .on('success', function(data,response){
                      callback(data);
                })
@@ -30,7 +30,7 @@ module.exports = {
 
       newFuncionalidadeByDescricao: function(descricao, callback){
           if (descricao != "") {
-            rest.post('http://'+host+":"+port+'/notas/funcionalidade/'+descricao)
+            rest.post('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao)
                .on('success', function(data,response){
                      callback(data);
                })
@@ -42,10 +42,9 @@ module.exports = {
          }
       },
 
-
       updateFuncionalidadeOnlyDescricao: function(descricao, novaDescricao, callback){
-          if (descricao != "" && novaDescricao != "") {
-            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/to/'+novaDescricao)
+           if (descricao != "" && novaDescricao != "") {
+            rest.put('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/to/'+novaDescricao)
                .on('success', function(data,response){
                      callback(data);
                })
@@ -57,26 +56,25 @@ module.exports = {
          }
       },
 
-
       updateFuncionalidadeByDescricao: function(descricao, funcionalidadedata, callback){
           if (descricao != "") {
-            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao,{
+            rest.put('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao,{
                   data: funcionalidadedata
                })
                .on('success', function(data,response){
                      callback(data);
                })
                .on('error', function(err,response){
-                     callback({message: "Erro ao inserir Funcionalidade"});
+                     callback({message: "Erro ao atualizar Funcionalidade"});
                });
          } else {
-               callback({message: "Não foi possível inserir Funcionalidade!!"});
+               callback({message: "Não foi possível atualizar Funcionalidade!!"});
          }
       },
 
       deleteFuncionalidadeByDescricao: function(descricao, callback){
          if (descricao != "") {
-            rest.del('http://'+host+":"+port+'/notas/funcionalidade/'+descricao)
+            rest.del('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao)
                .on('success', function(data,response){
                      callback(data);
                })
@@ -90,7 +88,7 @@ module.exports = {
 
       updateFuncionalidadeSubTipo: function(descricao, oldSubTipo, newSubtipo, callback){
          if (descricao != "" && oldSubTipo != "" && newSubtipo != "") {
-            rest.put('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/'+oldSubTipo+'/to/'+newSubtipo)
+            rest.put('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/subtipo/'+oldSubTipo+'/to/'+newSubtipo)
                .on('success', function(data,response){
                      callback(data);
                })
@@ -104,7 +102,7 @@ module.exports = {
 
       newFuncionalidadeSubTipo: function(descricao, subTipo, callback) {
          if (descricao != "" && subTipo != "") {
-            rest.post('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/'+subTipo)
+            rest.post('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/subtipo/'+subTipo)
                .on('success', function(data,response){
                      callback(data);
                })
@@ -118,7 +116,7 @@ module.exports = {
 
       deleteFuncionalidadeSubTipo: function(descricao, subTipo, callback) {
          if (descricao != "" && subTipo != "") {
-            rest.del('http://'+host+":"+port+'/notas/funcionalidade/'+descricao+'/'+subTipo)
+            rest.del('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/subtipo/'+subTipo)
                .on('success', function(data,response){
                      callback(data);
                })
