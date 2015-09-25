@@ -16,6 +16,7 @@ module.exports = {
 
       getFuncionalidadeByDescricao: function(descricao, callback){
           if (descricao != "") {
+            descricao = encodeURIComponent(descricao);
             rest.get('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao)
                .on('success', function(data,response){
                      callback(data);
@@ -30,6 +31,7 @@ module.exports = {
 
       newFuncionalidadeByDescricao: function(descricao, callback){
           if (descricao != "") {
+            descricao = encodeURIComponent(descricao);
             rest.post('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao)
                .on('success', function(data,response){
                      callback(data);
@@ -44,6 +46,8 @@ module.exports = {
 
       updateFuncionalidadeOnlyDescricao: function(descricao, novaDescricao, callback){
            if (descricao != "" && novaDescricao != "") {
+            descricao = encodeURIComponent(descricao);
+            novaDescricao = encodeURIComponent(novaDescricao);
             rest.put('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/to/'+novaDescricao)
                .on('success', function(data,response){
                      callback(data);
@@ -58,6 +62,8 @@ module.exports = {
 
       updateFuncionalidadeByDescricao: function(descricao, funcionalidadedata, callback){
           if (descricao != "") {
+            descricao = encodeURIComponent(descricao);
+            funcionalidadedata = encodeURIComponent(funcionalidadedata);
             rest.put('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao,{
                   data: funcionalidadedata
                })
@@ -74,6 +80,7 @@ module.exports = {
 
       deleteFuncionalidadeByDescricao: function(descricao, callback){
          if (descricao != "") {
+            descricao = encodeURIComponent(descricao);
             rest.del('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao)
                .on('success', function(data,response){
                      callback(data);
@@ -88,6 +95,9 @@ module.exports = {
 
       updateFuncionalidadeSubTipo: function(descricao, oldSubTipo, newSubtipo, callback){
          if (descricao != "" && oldSubTipo != "" && newSubtipo != "") {
+            descricao = encodeURIComponent(descricao);
+            oldSubTipo = encodeURIComponent(oldSubTipo);
+            newSubtipo = encodeURIComponent(newSubtipo);
             rest.put('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/subtipo/'+oldSubTipo+'/to/'+newSubtipo)
                .on('success', function(data,response){
                      callback(data);
@@ -102,6 +112,8 @@ module.exports = {
 
       newFuncionalidadeSubTipo: function(descricao, subTipo, callback) {
          if (descricao != "" && subTipo != "") {
+            descricao = encodeURIComponent(descricao);
+            subTipo = encodeURIComponent(subTipo);
             rest.post('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/subtipo/'+subTipo)
                .on('success', function(data,response){
                      callback(data);
@@ -116,6 +128,8 @@ module.exports = {
 
       deleteFuncionalidadeSubTipo: function(descricao, subTipo, callback) {
          if (descricao != "" && subTipo != "") {
+            descricao = encodeURIComponent(descricao);
+            subTipo = encodeURIComponent(subTipo);
             rest.del('http://'+host+":"+port+'/notas/funcionalidade/descricao/'+descricao+'/subtipo/'+subTipo)
                .on('success', function(data,response){
                      callback(data);
@@ -129,7 +143,11 @@ module.exports = {
       },
 
       newFuncionalidade: function(funcionalidadedata, callback){
+         descricao = funcionalidadedata.descricao;
+         subTipo = funcionalidadedata.subtipos;
          if (descricao != "" && subTipo != "") {
+            funcionalidadedata.descricao = encodeURIComponent(descricao);
+            funcionalidadedata.subtipos = encodeURIComponent(subTipo);
             rest.post('http://'+host+":"+port+'/notas/funcionalidade/new',{
                    data: funcionalidadedata
                })
@@ -146,6 +164,8 @@ module.exports = {
 
       newSubTipo: function(descricao,subtipodata, callback){
          if (descricao != "") {
+            descricao = encodeURIComponent(descricao);
+            subtipodata.subtipos = encodeURIComponent(subtipodata.subtipos);
             rest.post('http://'+host+":"+port+'/notas/funcionalidade/new/'+descricao+'/subtipo',{
                    data: subtipodata
                })
